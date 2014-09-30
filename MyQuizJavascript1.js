@@ -76,7 +76,7 @@ $(function() {
 		}
 	}
 
-	function lastpage() {	//This shows the last page and calculates the final score
+		function lastpage() {	//This shows the last page and calculates the final score
 		calculateScore();
 		var yourscore = score + " out of " + allQuestions.length + " correct.";
 		if (username) {
@@ -84,7 +84,13 @@ $(function() {
 		} else {
 			$('body').html("<p class='pagelast'>This is your final score: " + yourscore + "</p>");
 		}
+        $('.pagelast').after('<button id="playAgain">play again<\/button>');
+        
+        $('#playAgain').on('click', function() {    
+        location.reload();    
+        });
 	}
+    
 
 	function addToAnswers() {	//This adds values to the 'answers' array.
 		var checkedInput = $('input[name="choices"]:checked');
