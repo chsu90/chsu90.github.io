@@ -1,3 +1,4 @@
+
 /*global $:false */
 /** var allQuestions = [
 	{
@@ -62,7 +63,7 @@ $(function() {
 		}
 		$('label').slideDown(200); 		//Added some animation
 		if (questionIndexAnswers !== undefined) {
-			var checked = $('input').get(questionIndexAnswers);
+			var checked = $('input[name="choices"]').get(questionIndexAnswers);
 			$(checked).prop('checked', true);
 		}
 	}
@@ -78,17 +79,25 @@ $(function() {
 	function lastpage() {	//This shows the last page and calculates the final score
 		calculateScore();
 		var yourscore = score + " out of " + allQuestions.length + " correct.";
-		$('body').html("<p class='pagelast'>This is your final score: " + yourscore + "</p>");
+		if (username) {
+			$('body').html("<p class='pagelast'>This is your final score, " + username + ": " + yourscore + "</p>");
+		} else {
+			$('body').html("<p class='pagelast'>This is your final score: " + yourscore + "</p>");
+		}
 	}
 
 	function addToAnswers() {	//This adds values to the 'answers' array.
-		var checkedInput = $('input:checked');
-		answers[questionIndex] = checkedInput.index('input');
+		var checkedInput = $('input[name="choices"]:checked');
+		answers[questionIndex] = checkedInput.index('input[name="choices"]');
 	}
 
 	$("#next").on("click", function() {	//This block executes when the next button is clicked
-		var checkedInput = $('input:checked');
+		var checkedInput = $('input[name="choices"]:checked');
+
+		$('#greeting1').html("<p>Playing as " + username + "."); 	//PLAYING AS USERNAME.
+
 		if (checkedInput.length > 0) {	//This block executes if the user selected a radio button
+			$('#submitNameWrap').hide();
 			$('.result').hide();
 			if (allQuestions[questionIndex].correctAnswer === +checkedInput.val()) {
 				$('.right').fadeIn();
@@ -117,7 +126,7 @@ $(function() {
 	});
 
 	$('#back').on('click', function() {
-		var checkedInput = $('input:checked');
+		var checkedInput = $('input[name="choices"]:checked');
 		$('.result').fadeOut(1);
 		if (checkedInput.length > 0) {
 			addToAnswers();
