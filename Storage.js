@@ -50,6 +50,12 @@ $(function() {
 	$('#greeting1').hide();
 	$('#changeUser').hide();
 
+	if (CookieUtil.get('name')) {
+        	username = CookieUtil.get('name');
+	 	$('#greeting1').html("<p>Playing as " + username + "."); 
+        	$('#submitNameWrap').hide();
+	 }
+
 
 	$('#submitName').on('click', function () {
 		username = $('input[name="login"]').val();
