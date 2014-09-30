@@ -53,6 +53,7 @@ $(function() {
 	if (CookieUtil.get('name')) {
         	username = CookieUtil.get('name');
         	$('#greeting1').show();
+        	$('#changeUser').show();
 	 	$('#greeting1').html("<p>Playing as " + username + "."); 
         	$('#submitNameWrap').hide();
 	 }
