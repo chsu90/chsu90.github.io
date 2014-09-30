@@ -1,0 +1,29 @@
+[
+{
+"question": "Who is Prime Minister of the United Kingdom?",
+"choices": ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"],
+"correctAnswer": 0
+},
+{
+"question": "What's my name?",
+"choices": ["Mark", "Ralph", "Apple", "John"],
+"correctAnswer": 1
+},
+{
+"question": "What food do I like?",
+"choices": ["bananas", "eggs", "cookies", "water"],
+"correctAnswer": 2
+},
+{
+"question": "What team does Kobe Bryant play for?",
+"choices": ["Knicks", "Clippers", "Bulls", "Lakers"],
+"correctAnswer": 3
+},
+{
+"question": "Who is Brad Pitt married to?",
+"choices": ["Jessica Alba", "Lady Gaga", "Angelina Jolie", "Beyonce"],
+"correctAnswer": 2
+}
+]
+
+
