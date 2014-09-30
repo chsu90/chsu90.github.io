@@ -1,0 +1,61 @@
+body {
+    color: blue;
+    font-size: 16px;
+    font-family: garamond serif;
+    background-color: #bdffd3;
+}
+
+.result {
+    display: none
+}
+
+.right {
+    color: green
+}
+
+.wrong {
+    color:red
+}
+
+.makeChoice {
+    color: #0a86ff
+}
+
+h1 {
+    font-family: cursive;
+    background-color: #d2ffe8;
+    color: #360eff;
+}
+
+input {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+label {
+    display: block;
+    float: left;
+    clear: left;
+}
+
+button {
+    margin-left: 13px;
+}
+
+#next {
+    display: inline-block;
+}
+
+fieldset {
+    border: 0;
+}
+
+fieldset > legend {
+    font-weight: bold;
+    font-size: 18px;
+    color: #3400ff;
+}
+
+.pagelast {
+    font-size: 24px;
+}
