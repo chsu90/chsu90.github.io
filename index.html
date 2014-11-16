@@ -2,65 +2,57 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome To My Quiz</title>
     <link rel="stylesheet" type="text/css" href="MyQuizCSS1.css">
-    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<h1>Welcome To My Quiz</h1>
+<div class="container">
+<h1>Welcome To My Quiz <small>A Project By C.H.</small></h1>
 
 <p id="greeting1">Welcome </p>
 <div id="submitNameWrap">
-    <p id="welcomeUser">Welcome! If you wish to enter a username, submit it first.
-        </br>Otherwise if you wish to play anonymously, skip right into the quiz below:</p>
-    <input name="login">
-    <button id="submitName">submit name</button>
+    <p id="welcomeUser" class="lead">Welcome! If you wish to enter a username, submit it first.
+        <br>Otherwise if you wish to play anonymously, skip right into the quiz below:</p>
+    <form class="form-inline">
+        <div class="form-group">
+            <input class="form-control" placeholder="Your name" name="login">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" id="submitName">submit name</button>
+        </div>
+    </form>
 </div>
-<button id="changeUser">change user</button>
+<button class="btn btn-success" id="changeUser">change user</button>
 
 <fieldset>
     <legend></legend>
     <form class="questions"></form>
 </fieldset>
-<button id="back">back</button>
-<button id="next">next</button>
+<button class="btn btn-primary" id="back"><span class="glyphicon glyphicon-arrow-left"></span> back</button>
+<button class="btn btn-primary" id="next">next <span class="glyphicon glyphicon-arrow-right"></span> </button>
 <div class="right result">Right!</div>
 <div class="wrong result">Wrong :(</div>
 <div class="makeChoice result">Please select an answer.</div>
+
+
+</div>  <!-- end container -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="Storage.js"></script>
 <script type="text/javascript" src="MyQuizJavascript1.js"></script>
 </body>
 </html>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
