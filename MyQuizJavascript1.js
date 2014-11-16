@@ -1,32 +1,35 @@
+/**
+ * Created by coreyhsu on 9/16/14.
+ */
 
 /*global $:false */
 /** var allQuestions = [
-	{
-		question: "Who is Prime Minister of the United Kingdom?",
-		choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"],
-		correctAnswer: 0
-	},
-	{
-		question: "What's my name?",
-		choices: ["Mark", "Ralph", "Apple", "John"],
-		correctAnswer: 1
-	},
-	{
-		question: "What food do I like?",
-		choices: ["bananas", "eggs", "cookies", "water"],
-		correctAnswer: 2
-	},
-	{
-		question: "What team does Kobe Bryant play for?",
-		choices: ["Knicks", "Clippers", "Bulls", "Lakers"],
-		correctAnswer: 3
-	},
-	{
-		question: "Who is Brad Pitt married to?",
-		choices: ["Jessica Alba", "Lady Gaga", "Angelina Jolie", "Beyonce"],
-		correctAnswer: 2
-	}
-]; **/
+ {
+	question: "Who is Prime Minister of the United Kingdom?",
+	choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"],
+	correctAnswer: 0
+},
+ {
+	question: "What's my name?",
+	choices: ["Mark", "Ralph", "Apple", "John"],
+	correctAnswer: 1
+},
+ {
+	question: "What food do I like?",
+	choices: ["bananas", "eggs", "cookies", "water"],
+	correctAnswer: 2
+},
+ {
+	question: "What team does Kobe Bryant play for?",
+	choices: ["Knicks", "Clippers", "Bulls", "Lakers"],
+	correctAnswer: 3
+},
+ {
+	question: "Who is Brad Pitt married to?",
+	choices: ["Jessica Alba", "Lady Gaga", "Angelina Jolie", "Beyonce"],
+	correctAnswer: 2
+}
+ ]; **/
 var allQuestions;
 function getQuestions() {
 	$.ajax({
@@ -44,13 +47,13 @@ getQuestions();
 var jsonText = JSON.stringify(allQuestions);	//saving this for later just in case I need it
 
 $(function() {
-	var score = 0; 		//Initiate 3 variables
-	var questionIndex = 0;
-	var answers = [];
+	var score = 0, 		//Initiate 3 variables
+		questionIndex = 0,
+		answers = [];
 
 	function setup(qnum) {		//Sets up question and answers, and if the user checked a radio button, that radio button is checked.
-		var question = allQuestions[qnum];
-		var questionIndexAnswers = answers[questionIndex];
+		var question = allQuestions[qnum],
+			questionIndexAnswers = answers[questionIndex];
 		if (qnum === 0) {
 			$('#back').css('display', 'none');
 		}
@@ -58,7 +61,7 @@ $(function() {
 			$('#back').css('display', 'inline-block');
 		}
 		$('fieldset > legend').append(question.question);
-		for(var i = 0; i < question.choices.length; i++) {
+		for(var i = 0, n = question.choices.length; i < n; i++) {
 			$('.questions').append('<label style="display: none"><input name="choices" type="radio" value="'+i+'" />' +question.choices[i]+ '</label>');
 		}
 		$('label').slideDown(200); 		//Added some animation
@@ -69,14 +72,14 @@ $(function() {
 	}
 
 	function calculateScore() {		//lastpage() uses this to calculate the score.
-		for (var i = 0; i < answers.length; i++) {
+		for (var i = 0, n = answers.length; i < n; i++) {
 			if (answers[i] === allQuestions[i].correctAnswer) {
 				score++;
 			}
 		}
 	}
 
-		function lastpage() {	//This shows the last page and calculates the final score
+	function lastpage() {	//This shows the last page and calculates the final score
 		calculateScore();
 		var yourscore = score + " out of " + allQuestions.length + " correct.";
 		if (username) {
@@ -84,13 +87,13 @@ $(function() {
 		} else {
 			$('body').html("<p class='pagelast'>This is your final score: " + yourscore + "</p>");
 		}
-        $('.pagelast').after('<button id="playAgain">play again<\/button>');
-        
-        $('#playAgain').on('click', function() {    
-        location.reload();    
-        });
+		$('.pagelast').after('<button class="btn btn-info" id="playAgain"><span class="glyphicon glyphicon-repeat"></span> play again<\/button>');
+
+		$('#playAgain').on('click', function() {
+			location.reload();
+		});
 	}
-    
+
 
 	function addToAnswers() {	//This adds values to the 'answers' array.
 		var checkedInput = $('input[name="choices"]:checked');
@@ -145,3 +148,12 @@ $(function() {
 	});
 	setup(0);
 });
+
+
+
+
+
+
+
+
+
